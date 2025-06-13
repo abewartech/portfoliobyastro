@@ -1,3 +1,5 @@
+<!-- GitAds-Verify: GOI3L5DGR8WTQ5KC98MI8LSIARZP9QN9 -->
+
 # Astro Starter Kit: Portfolio
 
 ```
