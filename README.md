@@ -1,5 +1,10 @@
 <!-- GitAds-Verify: GOI3L5DGR8WTQ5KC98MI8LSIARZP9QN9 -->
 
+## GitAds Sponsored
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=abewartech/portfoliobyastro@github)](https://gitads.dev/v1/ad-track?source=abewartech/portfoliobyastro@github)
+
+
+
 # Astro Starter Kit: Portfolio
 
 ```
@@ -30,3 +35,8 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## GitAds Sponsored
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=abewartech/portfoliobyastro@github)](https://gitads.dev/v1/ad-track?source=abewartech/portfoliobyastro@github)
+
+
