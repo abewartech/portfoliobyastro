@@ -26,9 +26,32 @@ const { Content } = await entry.render();
 
 const formatDate = (d: Date) =>
 	d.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+
+// Structured data for the article — helps Google show rich results.
+const articleSchema = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	headline: entry.data.title,
+	description: entry.data.description,
+	datePublished: entry.data.publishDate.toISOString(),
+	author: {
+		"@type": "Person",
+		name: "Rahmad Al Habib Khasary",
+		url: new URL(import.meta.env.BASE_URL, Astro.site).href,
+	},
+	publisher: {
+		"@type": "Person",
+		name: "Rahmad Al Habib Khasary",
+	},
+	mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+};
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description}>
+<BaseLayout
+	title={entry.data.title}
+	description={entry.data.description}
+	ldJson={[articleSchema]}
+>
 	<div class="stack gap-20">
 		<div class="stack gap-15">
 			<header>
@@ -156,3 +179,4 @@ const formatDate = (d: Date) =>
 		}
 	}
 </style>
+

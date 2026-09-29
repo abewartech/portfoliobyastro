@@ -4,21 +4,104 @@ import "../styles/global.css";
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
+  image?: string | undefined;
+  ldJson?: Record<string, unknown>[];
 }
 
 const {
   title = "Rahmad Al Habib Khasary — Full Stack Developer",
-  description = "Portfolio of Rahmad Al Habib Khasary, a full stack developer based in Cibinong, Bogor. Laravel, React, React Native — 10 years building web & mobile applications."
+  description = "Portfolio of Rahmad Al Habib Khasary, a full stack developer based in Cibinong, Bogor, Indonesia. Laravel, React, React Native — 10 years building web & mobile applications.",
+  image,
+  ldJson = [],
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL; // "/portfoliobyastro/"
+const siteRoot = new URL(base, Astro.site).href;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageURL =
+  image ?? new URL(`${base}og-image.png`, Astro.site).href;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Rahmad Al Habib Khasary",
+  alternateName: "abe",
+  url: siteRoot,
+  image: ogImageURL,
+  jobTitle: "Full Stack Developer",
+  description,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Cibinong",
+    addressRegion: "West Java",
+    addressCountry: "ID",
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "ALSOK Indonesia",
+  },
+  sameAs: [
+    "https://github.com/abewartech",
+    "https://www.linkedin.com/in/rahmad-al-habib-khasary-4a7391125/",
+    "https://twitter.com/habibkhasary",
+    "https://abewartech.github.io/",
+  ],
+  knowsAbout: [
+    "Laravel",
+    "React",
+    "React Native",
+    "Node.js",
+    "TypeScript",
+    "PHP",
+    "JavaScript",
+    "MySQL",
+    "PostgreSQL",
+    "MongoDB",
+    "Python",
+    "Electron",
+  ],
+};
 ---
 
 <meta charset="UTF-8" />
-<meta name="description" property="og:description" content={description} />
 <meta name="viewport" content="width=device-width" />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Rahmad Al Habib Khasary" />
+<meta name="theme-color" content="#0a192f" />
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Rahmad Al Habib Khasary" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:image:alt" content={title} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@habibkhasary" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageURL} />
+<meta name="twitter:image:alt" content={title} />
+
+<!-- Structured data -->
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+{
+  ldJson.map((schema) => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))
+}
+
+<link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
