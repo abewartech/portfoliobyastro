@@ -1,13 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger the workflow every time you push to the `master` branch
   push:
     branches: [master]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
-# Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
   pages: write
@@ -32,3 +29,22 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  notify:
+    # Tell Bing/Yandex about changed URLs via IndexNow once the deploy is live.
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: Ping IndexNow
+        env:
+          INDEXNOW_KEY: cf64910e6308775a8b5155d128c773c7
+        run: |
+          set -e
+          URLS_JSON=$(curl -sL --max-time 30 https://abewartech.github.io/portfoliobyastro/sitemap.xml | grep -oP '<loc>\K[^<]+' | jq -R . | jq -c -s .)
+          COUNT=$(echo "$URLS_JSON" | jq 'length')
+          echo "Pinging IndexNow with $COUNT URLs"
+          PAYLOAD=$(jq -n --arg key "$INDEXNOW_KEY" --argjson urls "$URLS_JSON" '{host:"abewartech.github.io", key:$key, keyLocation:("https://abewartech.github.io/portfoliobyastro/"+$key+".txt"), urlList:$urls}')
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$PAYLOAD")
+          echo "IndexNow HTTP $HTTP_CODE"
+          if [ "$HTTP_CODE" != "200" ] && [ "$HTTP_CODE" != "202" ]; then exit 1; fi
