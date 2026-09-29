@@ -71,6 +71,15 @@ const personSchema = {
 <meta name="author" content="Rahmad Al Habib Khasary" />
 <meta name="theme-color" content="#0a192f" />
 <meta name="generator" content={Astro.generator} />
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEPHF6F6TJ"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DEPHF6F6TJ');
+</script>
 <title>{title}</title>
 
 <!-- Open Graph -->
@@ -134,3 +143,4 @@ const personSchema = {
     });
   }
 </script>
+
