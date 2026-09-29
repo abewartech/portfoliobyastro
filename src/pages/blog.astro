@@ -1,0 +1,98 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import ContactCTA from "../components/ContactCTA.astro";
+import Hero from "../components/Hero.astro";
+import Pill from "../components/Pill.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+---
+
+<BaseLayout
+  title="Blog | Rahmad Al Habib Khasary"
+  description="Catatan harian tentang tren teknologi: GitHub trending, paper AI, dan rilis open-source yang disaring untuk developer."
+>
+  <div class="stack gap-20">
+    <main class="wrapper stack gap-8">
+      <Hero
+        title="Blog"
+        tagline="Tech Watch — intisari harian GitHub trending, arXiv, dan rilis open-source yang disaring untuk full-stack developer."
+        align="start"
+      />
+      <ul class="posts">
+        {
+          posts.map((post) => (
+            <li>
+              <a class="post-card" href={`/blog/${post.slug}/`}>
+                <span class="date">{formatDate(post.data.publishDate)}</span>
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description}</p>
+                <div class="tags">
+                  {post.data.tags.map((t) => (
+                    <Pill>{t}</Pill>
+                  ))}
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+    <ContactCTA />
+  </div>
+</BaseLayout>
+
+<style>
+  .posts {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--gray-800);
+    border-radius: 1.5rem;
+    background: var(--gradient-subtle);
+    text-decoration: none;
+    transition: border-color var(--theme-transition);
+  }
+
+  .post-card:hover,
+  .post-card:focus {
+    border-color: var(--gray-600);
+  }
+
+  .date {
+    font-size: var(--text-sm);
+    color: var(--gray-400);
+  }
+
+  .post-card h3 {
+    margin: 0;
+    font-size: var(--text-xl);
+  }
+
+  .post-card p {
+    margin: 0;
+    color: var(--gray-300);
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+</style>

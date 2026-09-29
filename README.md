@@ -1,42 +1,32 @@
-<!-- GitAds-Verify: GOI3L5DGR8WTQ5KC98MI8LSIARZP9QN9 -->
+# portfoliobyastro
 
-## GitAds Sponsored
-[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=abewartech/portfoliobyastro@github)](https://gitads.dev/v1/ad-track?source=abewartech/portfoliobyastro@github)
+Personal portfolio of **Rahmad Al Habib Khasary** — full stack developer based in Cibinong, Bogor, Indonesia. Built with [Astro](https://astro.build).
 
+Live: https://abewartech.github.io/portfoliobyastro/ (via GitHub Pages, deploys automatically on push to `master`)
 
+## Contents
 
-# Astro Starter Kit: Portfolio
+- **Home** — hero, skills, selected work
+- **Work** — project case studies (Bulbulls, ALSOK enterprise apps, OpenWRT tooling, social monitoring, Takoyae, KBC Futsal)
+- **About** — background, experience timeline, education, skills
 
-```
-npm create astro@latest -- --template portfolio
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/portfolio)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/portfolio)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![portfolio](https://raw.githubusercontent.com/abewartech/portfoliobyastro/master/public/assets/landing.png)
-
-
-## 🧞 Commands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
+| Command           | Action                                       |
+| :---------------- | :------------------------------------------- |
+| `npm install`     | Installs dependencies                        |
+| `npm run dev`     | Starts local dev server at `localhost:4321`  |
+| `npm run build`   | Build your production site to `./dist/`      |
+| `npm run preview` | Preview your build locally, before deploying |
 
-## 👀 Want to learn more?
+## Deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Pushing to `master` triggers `.github/workflows/deploy.yml`, which builds the site and deploys it to GitHub Pages. One-time setup in the repo settings: **Settings → Pages → Source → GitHub Actions**.
 
-## GitAds Sponsored
-[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=abewartech/portfoliobyastro@github)](https://gitads.dev/v1/ad-track?source=abewartech/portfoliobyastro@github)
+## Contact
 
-
+- Email: rahmadalhabib89@gmail.com
+- GitHub: https://github.com/abewartech
+- LinkedIn: https://www.linkedin.com/in/rahmad-al-habib-khasary-4a7391125/

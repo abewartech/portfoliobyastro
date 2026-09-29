@@ -7,7 +7,7 @@ import Hero from "../components/Hero.astro";
 
 <BaseLayout
   title="About | Rahmad Al Habib Khasary"
-  description="About Rahmad Al Habib Khasary Lorem Ipsum"
+  description="About Rahmad Al Habib Khasary — full stack developer based in Cibinong, Bogor with 10 years of experience."
 >
   <div class="stack gap-20">
     <main class="wrapper about">
@@ -27,39 +27,89 @@ import Hero from "../components/Hero.astro";
         <h2 class="section-title">Background</h2>
         <div class="content">
           <p>
-            Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a>
-            makes people happy. Sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Proin nibh nisl condimentum id venenatis a condimentum
-            vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla pharetra
-            diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus
-            in ornare.
+            I'm Rahmad Al Habib Khasary, a full stack developer based in
+            Cibinong, Bogor, Indonesia. I've been building software since 2016 —
+            starting as a freelance developer, then working across agencies and
+            enterprises as a senior programmer, and now as a full stack
+            developer at ALSOK Indonesia, where I own internal applications used
+            by roughly 30,000 employees: attendance, carpooling, e-learning,
+            and an integrated facility management system.
           </p>
           <p>
-            Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget
-            gravida cum sociis natoque penatibus. Cras fermentum odio eu feugiat
-            pretium nibh. Proin nibh nisl condimentum id venenatis. Porta nibh
-            venenatis cras sed felis eget velit. Id diam vel quam elementum
-            pulvinar etiam non.
+            My comfort zone is the whole stack: Laravel and React on a typical
+            day, React Native or Flutter when it needs to run on a phone,
+            Electron for desktop, and Node-RED or Python when the job involves
+            hardware and integrations. I've shipped enterprise systems, client
+            freelance projects, and small-business apps — each one teaches a
+            different kind of discipline.
           </p>
           <p>
-            Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut
-            sem viverra aliquet eget sit amet. Lacus luctus accumsan tortor
-            posuere ac ut consequat semper viverra. Viverra accumsan in nisl
-            nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
-            pretium fusce.
+            These days I'm also building <strong>Bulbulls</strong>, a game
+            top-up store, from an accepted proposal toward go-live — dynamic
+            pricing, automatic supplier failover, and multi-payment gateway
+            architecture. When I'm not writing code, I'm usually hunting for
+            freelance gigs or tinkering with self-hosted tooling.
           </p>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">Experience</h2>
+        <div class="content">
+          <ul class="timeline">
+            <li>
+              <strong>Full Stack Developer — ALSOK Indonesia</strong>
+              <span>2025 — Present</span>
+              <p>Attendance system for ~30,000 employees, carpooling app, e-learning platform, and IFMS (Integrated Facility Management System).</p>
+            </li>
+            <li>
+              <strong>Full Stack Developer — PT Sirius Parama Sistem</strong>
+              <span>2025 — 2026</span>
+            </li>
+            <li>
+              <strong>Full Stack Developer — Cipta Pernika Nusantara</strong>
+              <span>2020 — 2025</span>
+            </li>
+            <li>
+              <strong>Frontend Developer (Freelance) — Bank Sinarmas via Artha Semesta Puana</strong>
+              <span>2022 — 2023</span>
+            </li>
+            <li>
+              <strong>Programmer — Pindai Media Komunika</strong>
+              <span>2019 — 2020</span>
+            </li>
+            <li>
+              <strong>Senior Programmer — Azimuth Solusi Indonesia</strong>
+              <span>2017 — 2019</span>
+            </li>
+            <li>
+              <strong>Freelance Full Stack Developer — Keboen Coding</strong>
+              <span>2016 — 2017</span>
+            </li>
+          </ul>
         </div>
       </section>
       <section>
         <h2 class="section-title">Education</h2>
         <div class="content">
-          <p>Corporis voluptates tenetur laudantium.</p>
+          <p>
+            <strong>S1 Teknologi Informasi</strong> — Universitas Indraprasta
+            PGRI, Jakarta (2020), IPK 3.54. Thesis: online futsal field booking
+            system (Android + web backend + Lumen API).
+          </p>
         </div>
       </section>
       <section>
         <h2 class="section-title">Skills</h2>
         <div class="content">
-          <p>officia unde omnis</p>
+          <p>
+            <strong>Languages & frameworks:</strong> PHP (Laravel, Lumen),
+            JavaScript/TypeScript (React, React Native, Node.js), Dart
+            (Flutter), Python, Java, Electron.
+          </p>
+          <p>
+            <strong>Data & infra:</strong> MySQL, PostgreSQL, MongoDB, Docker,
+            Linux, Node-RED.
+          </p>
         </div>
       </section>
     </main>
@@ -107,6 +157,32 @@ import Hero from "../components/Hero.astro";
   .content :global(a:hover),
   .content :global(a:focus) {
     text-decoration-color: currentColor;
+  }
+
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .timeline li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .timeline span {
+    color: var(--gray-400);
+    font-size: var(--text-sm);
+  }
+
+  .timeline p {
+    margin: 0.25rem 0 0;
+    color: var(--gray-400);
+    font-size: var(--text-md);
   }
 
   @media (min-width: 50em) {
